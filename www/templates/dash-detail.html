@@ -1,0 +1,38 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<style>
+    .row{
+      padding:0;
+      margin:0;
+    }
+</style>
+<ion-view view-title="对接流程">
+  <ion-content class="padding">
+    <div ng-repeat="node in vm.customer.track">
+      <div class="row" >
+          <div class="col col-10" style="border-right:4px solid #4a87ee;"></div>
+          <div class="col col-10 col-center" style="height:20px;font-size:20px;width:20px;">
+            <i class="ion ion-help-circled" style="margin-left:-5px;"> </i>
+          </div>
+          <div class="col col-80 col-center">
+             　<p class="timeline-message" style="padding:10px;border-radius:4px 4px;min-height:72px;">
+                  {{$index}} . {{node.message}}
+               </p>
+               <p class="text-right">
+                 <em>2012-12-12</em>
+               </p>
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="col col-20" style="text-align:center" >
+            <i class="ion ion-ios-location assertive" style="margin-left:-3px;margin-top:8px;"> </i>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

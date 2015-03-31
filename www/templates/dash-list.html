@@ -1,0 +1,38 @@
+<ion-view view-title="Status">
+  <ion-content class="has-header padding">
+
+		<div class="card">
+			<label class="item item-input">
+				<i class="icon ion-search placeholder-icon"></i>
+				<input type="text" placeholder="查找机构" ng-model="searchBy">
+			</label>
+		</div>
+
+  		<div class="list">
+
+	      <a ui-sref = "tab.orgs-detail({id:customer.id})" collection-repeat="customer in vm.customers | filter:searchBy" class="item item-icon-left">
+			<!-- 
+			  var status = [
+			  	"PLANNING", //未开始
+				"DOING",  //正在进行
+				"PEDING",   //卡住
+				"DONE",    //结束
+				"OVERDUE" //逾期
+			] -->
+	        <i ng-if="customer.status === 'PLANNING'" class="icon ion-ios-help royal"></i>
+	        <i ng-if="customer.status === 'DOING'" class="icon ion-ios-checkmark balanced"></i>
+	        <i ng-if="customer.status === 'PEDING'"  class="icon ion-ios-minus calm"></i>
+	        <i ng-if="customer.status === 'DONE'" class="icon ion-ios-information  energized"></i>
+	        <i ng-if="customer.status === 'OVERDUE'"  class="icon ion-ios-close assertive"></i>
+	        {{customer.name}} | {{customer.status}}
+
+	        <span class="item-note">
+	        	{{customer.start_date}}
+	        </span>
+
+	      </a>
+
+	    </div>
+
+  </ion-content>
+</ion-view>
